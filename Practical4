@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radiant Yoga</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(180deg, #001f3f, #ff9966, #fff6eb);
+      background-size: 400% 400%;
+      animation: sunrise 20s infinite alternate;
+      color: #444;
+      line-height: 1.6;
+      transition: background 1s ease;
+      overflow-x: hidden;
+    }
+
+    @keyframes sunrise {
+      0% { background-position: 50% 100%; }
+      50% { background-position: 50% 50%; }
+      100% { background-position: 50% 0%; }
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: linear-gradient(90deg, #ffcc33, #ff9933);
+      color: white;
+      font-family: 'Pacifico', cursive;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 2;
+    }
+    header h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+    }
+
+    /* Glowing Om Symbol with Halo */
+    .om-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    .om-symbol {
+      font-size: 4rem;
+      color: gold;
+      position: relative;
+      z-index: 2;
+      animation: pulse 3s infinite ease-in-out;
+    }
+    /* Golden Halo */
+    .om-halo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(255,215,0,0.6), rgba(255,165,0,0.1), transparent);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      animation: halo-glow 4s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 15px gold, 0 0 30px orange, 0 0 50px #ffcc33;
+      }
+      50% {
+        transform: scale(1.2);
+        text-shadow: 0 0 25px gold, 0 0 50px orange, 0 0 80px #ffcc33;
+      }
+    }
+
+    @keyframes halo-glow {
+      0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+    }
+
+    /* Flying Birds */
+    .bird {
+      position: absolute;
+      top: 50px;
+      width: 50px;
+      animation: fly 20s linear infinite;
+      opacity: 0.9;
+      z-index: 1;
+    }
+    .bird:nth-child(1) { left: -60px; animation-delay: 0s; }
+    .bird:nth-child(2) { left: -80px; top: 120px; animation-delay: 5s; }
+    .bird:nth-child(3) { left: -100px; top: 200px; animation-delay: 10s; }
+
+    @keyframes fly {
+      from { transform: translateX(0) scale(1); }
+      to { transform: translateX(120vw) scale(1.2); }
+    }
+
+    /* Flexbox Section */
+    .yoga-flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding: 50px 20px;
+      flex-wrap: wrap;
+    }
+    .pose {
+      flex: 1 1 300px;
+      max-width: 350px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(255, 170, 50, 0.3);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .pose:hover { transform: scale(1.05); }
+    .pose img {
+      width: 100%;
+      height: 250px;
+      border-radius: 15px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    .pose h2 {
+      font-family: 'Pacifico', cursive;
+      color: #ff9933;
+      margin-bottom: 10px;
+    }
+
+    /* Grid Section */
+    .yoga-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .grid-card {
+      background: linear-gradient(135deg, #fff, #fff5e1);
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .grid-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(255,153,51,0.5);
+    }
+    .grid-card h3 {
+      font-family: 'Pacifico', cursive;
+      color: #33cc99;
+      margin-bottom: 10px;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      .pose img { height: 200px; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #ffb347;
+      color: white;
+      margin-top: 30px;
+      border-radius: 15px 15px 0 0;
+    }
+
+    /* Floating Music Player */
+    .music-player {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px 15px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 153, 51, 0.4);
+    }
+    .music-player audio {
+      width: 250px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Flying Birds -->
+  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="bird" alt="bird">
+  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="bird" alt="bird">
+  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="bird" alt="bird">
+
+  <!-- Header -->
+  <header>
+    <div class="om-container">
+      <div class="om-halo"></div>
+      <div class="om-symbol">🕉</div>
+    </div>
+    <h1>🌸 Radiant Yoga 🌸</h1>
+    <p>Balance · Energy · Positivity</p>
+  </header>
+
+  <!-- Flexbox Section -->
+  <section class="yoga-flex">
+    <div class="pose">
+      <img src="https://static.vecteezy.com/system/resources/previews/027/885/827/large_2x/lotus-pose-harmony-with-nature-meditation-and-mental-health-of-a-person-diet-and-exercise-the-trainer-is-engaged-in-pilates-asana-and-stretching-a-slim-body-young-woman-yoga-workout-photo.JPG" alt="Lotus Pose">
+      <h2>Lotus Pose</h2>
+      <p>Calm your mind, connect with your breath, and find inner peace.</p>
+    </div>
+
+    <div class="pose">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNiIzt-nePBZKtCOf7kVOKPmlI-pjSr8Tj-Q&s" alt="Warrior Pose">
+      <h2>Warrior Pose</h2>
+      <p>Build strength and confidence while embracing your inner power.</p>
+    </div>
+
+    <div class="pose">
+      <img src="https://www.everydayyoga.com/cdn/shop/articles/Yoga_TreePose_01_300x350_397425f7-8edd-4d00-a1ed-081f0721100c_grande.jpg?v=1558424556" alt="Tree Pose">
+      <h2>Tree Pose</h2>
+      <p>Find stability and balance in both body and mind.</p>
+    </div>
+  </section>
+
+  <!-- Grid Section -->
+  <section class="yoga-grid">
+    <div class="grid-card">
+      <h3>☀ Morning Flow</h3>
+      <p>Start your day with light stretches and positive energy.</p>
+    </div>
+    <div class="grid-card">
+      <h3>🌙 Evening Calm</h3>
+      <p>Relax your body and release tension before bedtime.</p>
+    </div>
+    <div class="grid-card">
+      <h3>💪 Power Yoga</h3>
+      <p>Energize your spirit with strength-building poses.</p>
+    </div>
+    <div class="grid-card">
+      <h3>🧘 Meditation</h3>
+      <p>Connect with your breath and discover mindfulness.</p>
+    </div>
+  </section>
+
+  <!-- Floating Music Player -->
+  <div class="music-player">
+    <audio controls autoplay loop>
+      
