@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nature Resume</title>
+
+  <!-- Internal CSS -->
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Sticky Navigation Bar */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #2e7d32;
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: #66bb6a;
+      color: #fffde7;
+    }
+
+    header {
+      text-align: center;
+      background: url("https://marketplace.canva.com/EAGDUOs6008/1/0/450w/canva-green-watercolor-nature-aesthetic-background-instagram-story-DoHQl7-rQag.jpg") no-repeat center;
+      background-size: cover;
+      color: white;
+      padding: 70px 20px;
+      position: relative;
+      z-index: 2;
+    }
+    section {
+      margin: 20px auto;
+      padding: 25px;
+      background: #ffffffd9;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 900px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 2;
+    }
+    h2 {
+      color: #2e7d32;
+      border-left: 6px solid #81c784;
+      padding-left: 10px;
+    }
+    section img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+
+    /* Floating flowers and leaves */
+    .falling {
+      position: fixed;
+      top: -50px;
+      font-size: 28px;
+      animation: fall linear infinite;
+      z-index: 1;
+      opacity: 0.9;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav {
+        gap: 12px;
+      }
+      h1 {
+        font-size: 32px !important;
+      }
+      section {
+        width: 90%;
+        padding: 15px;
+      }
+      section p, section ul {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      h1 {
+        font-size: 26px !important;
+      }
+      header p {
+        font-size: 14px;
+      }
+      section {
+        width: 95%;
+        padding: 12px;
+      }
+      section img {
+        max-height: 180px;
+      }
+    }
+  </style>
+
+  <!-- External CSS (simulated inside same file) -->
+  <style id="external-css">
+    header p {
+      font-style: italic;
+      font-size: 18px;
+      background: rgba(0,0,0,0.4);
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 10px;
+    }
+
+    section ul {
+      list-style-type: "🌿 ";
+      font-size: 17px;
+      padding-left: 25px;
+    }
+
+    section p {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #1b5e20;
+    }
+
+    section:hover {
+      background: #f1f8e9;
+      transform: scale(1.02);
+      transition: 0.4s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Nav -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#elements">Elements</a>
+    <a href="#importance">Importance</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header>
+    <h1 style="color: #ffeb3b; font-size: 50px; text-shadow: 2px 2px 5px green;">🌿 Nature Resume 🌿</h1> <!-- Inline CSS -->
+    <p>Inspired by the beauty of Earth and its green energy</p>
+  </header>
+
+  <section id="about">
+    <h2>🌱 About Nature</h2>
+    <p>Nature is the art of God, filled with green forests, flowing rivers, and calm skies. It heals us, inspires us, and sustains life.</p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf7sLkMP-oHkmmJ61VzRdglq9BVulSg8X1EQ&s" alt="Ocean and Sky">
+  </section>
+
+  <section id="elements">
+    <h2>🌳 Elements of Nature</h2>
+    <ul>
+      <li>Trees – the lungs of Earth</li>
+      <li>Water – the soul of life</li>
+      <li>Mountains – the guardians of silence</li>
+      <li>Wildlife – the balance of ecosystems</li>
+    </ul>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82_uCXd5TJeU6A3d3E_PObm_Xn9ZPmUziKg&s" alt="Forest and Mountains">
+  </section>
+
+  <section id="importance">
+    <h2>🌸 Importance</h2>
+    <p>Protecting nature means protecting ourselves. A green Earth ensures a healthy, happy, and sustainable future for generations to come.</p>
+    <img src="https://thumbs.dreamstime.com/b/beautiful-amazing-cosmos-flower-field-landscape-sunset-nature-wallpaper-background-179698760.jpg" alt="Flowers in Nature">
+  </section>
+
+  <section id="contact">
+    <h2>🌍 Contact Mother Earth</h2>
+    <p>Email: <span style="color: green; font-weight: bold;">earth@nature.com</span></p> <!-- Inline CSS -->
+    <p>Phone: +91 1234567890</p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdKryXmbrntfbOeHiD9zkpVVKz9NATfNsJKQ&s" alt="Earth and Trees">
+  </section>
+
+  <!-- Floating leaves and flowers -->
+  <div class="falling" style="left:10%; animation-duration: 8s;">🍃</div>
+  <div class="falling" style="left:30%; animation-duration: 10s;">🌸</div>
+  <div class="falling" style="left:50%; animation-duration: 7s;">🍂</div>
+  <div class="falling" style="left:70%; animation-duration: 9s;">🌼</div>
+  <div class="falling" style="left:85%; animation-duration: 11s;">🍁</div>
+
+</body>
+</html>
