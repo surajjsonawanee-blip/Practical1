@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DarkFlix - Horror & Suspense</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: url('https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #eee;
+      overflow-x: hidden;
+    }
+
+    /* Dark overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: -2;
+    }
+
+    /* Creepy Mist */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 200%; height: 200%;
+      background: url("https://i.ibb.co/MfJ7GLh/mist.png") repeat;
+      background-size: cover;
+      opacity: 0.12;
+      animation: mistMove 60s linear infinite;
+      z-index: -1;
+    }
+    @keyframes mistMove {
+      0% { transform: translateX(0) translateY(0); }
+      50% { transform: translateX(-200px) translateY(50px); }
+      100% { transform: translateX(0) translateY(0); }
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(90deg, #000, #4d0000);
+      color: #ff0000;
+      font-family: 'Creepster', cursive;
+      letter-spacing: 3px;
+      animation: flicker 2s infinite alternate;
+    }
+    header h1 { font-size: 3rem; }
+    header p { font-size: 1.2rem; }
+
+    /* Movie Grid */
+    .movie-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: #111;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(255,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(255,0,0,0.6);
+    }
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(70%);
+      transition: filter 0.3s ease;
+    }
+    .card:hover img { filter: brightness(100%); }
+
+    .card-content {
+      padding: 15px;
+      text-align: center;
+    }
+    .card-content h2 {
+      font-family: 'Creepster', cursive;
+      color: #ff4444;
+      margin-bottom: 10px;
+    }
+    .card-content p {
+      font-size: 0.95rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    /* Heartbeat Watch Now Button */
+    .watch-now {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #ff0000;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 10px #ff0000; }
+      25% { transform: scale(1.1); box-shadow: 0 0 25px #ff1a1a; }
+      50% { transform: scale(1.2); box-shadow: 0 0 40px #ff3333; }
+      75% { transform: scale(1.1); box-shadow: 0 0 25px #ff1a1a; }
+    }
+
+    /* Flicker Title */
+    @keyframes flicker {
+      0% { text-shadow: 2px 2px 8px #ff0000; }
+      50% { text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000; }
+      100% { text-shadow: 2px 2px 8px #ff0000; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #111;
+      color: #666;
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Horror Music Player */
+    .audio-player {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.7);
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px red;
+    }
+    .audio-player audio { width: 200px; }
+
+    /* Falling Blood Drops */
+    .blood-drop {
+      position: fixed;
+      top: -50px;
+      width: 15px;
+      height: 15px;
+      background: red;
+      border-radius: 50%;
+      animation: fall linear infinite;
+      opacity: 0.8;
+      z-index: 1;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(110vh); opacity: 0; }
+    }
+
+    /* Jump Scare Ghost */
+    .ghost {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s;
+    }
+    .ghost img {
+      max-width: 50%;
+      max-height: 70%;
+      animation: shake 0.3s infinite;
+    }
+    @keyframes shake {
+      0% { transform: translate(0,0); }
+      25% { transform: translate(-10px,5px); }
+      50% { transform: translate(10px,-5px); }
+      75% { transform: translate(-5px,10px); }
+      100% { transform: translate(0,0); }
+    }
+    .ghost.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>DarkFlix 🎬</h1>
+    <p>Suspense & Horror Movie Blog</p>
+  </header>
+
+  <!-- Movies Grid -->
+  <div class="movie-container">
+    <div class="card">
+      <img src="https://i.pinimg.com/736x/8f/88/28/8f882892194b5150997b602d67c72ec2.jpg" alt="Haunted House">
+      <div class="card-content">
+        <h2>Haunted Mansion</h2>
+        <p>A spine-chilling story of a family trapped inside a cursed house full of dark secrets.</p>
+        <a href="#" class="watch-now">Watch Now</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://www.freud.org.uk/wp-content/uploads/2022/02/JuanCholo-CC-BY-SA-4.0.jpeg" alt="Dark Forest">
+      <div class="card-content">
+        <h2>Whispers in the Woods</h2>
+        <p>Mysterious disappearances in a forest where no one dares to go after sunset.</p>
+        <a href="#" class="watch-now">Watch Now</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/43b2fe02-0b73-46fb-aa75-8f8ea63b6d4e/Screen+Shot+2023-06-09+at+10.21.34+AM.jpg" alt="Masked Horror">
+      <div class="card-content">
+        <h2>The Silent Killer</h2>
+        <p>A masked figure lurks in the shadows, waiting for the perfect moment to strike.</p>
+        <a href="#" class="watch-now">Watch Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Horror Music -->
+  <div class="audio-player">
+    <audio autoplay loop controls>
+      <source src="https://youtu.be/93yomTdbATQ?si=0AzeaKyGdNP4tz6G" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Jump Scare Ghost -->
+  <div class="ghost" id="ghost">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdwYb1-MKMavsTXJTTvCutXX52XPfPzB1mfcjeW-kXHNkaedpoI-3qdBzLET6gw78qMqHsGV0y4FYrQA3471gqvIDns4Fw4YilfyFf3suuP6BQtYu_EM-h7UUFcaa6-MSQsPgR0LGjFJ6o/s1600/Nun2.jpg" alt="Scary Ghost">
+  </div>
+
+  <!-- Blood Drops + Jump Scare Script -->
+  <script>
+    function createBloodDrop() {
+      const drop = document.createElement("div");
+      drop.classList.add("blood-drop");
+      drop.style.left = Math.random() * window.innerWidth + "px";
+      drop.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      document.body.appendChild(drop);
+      setTimeout(() => { drop.remove(); }, 5000);
+    }
+    setInterval(createBloodDrop, 500);
+
+    // Jump Scare Logic
+    function triggerJumpScare() {
+      const ghost = document.getElementById("ghost");
+      ghost.classList.add("show");
+      setTimeout(() => { ghost.classList.remove("show"); }, 1500);
+    }
+    // Random jump-scare every 20-40 sec
+    setInterval(() => {
+      if (Math.random() > 0.5) triggerJumpScare();
+    }, 20000);
+  </script>
+
+  <!-- Footer -->
+  <footer>
+    <p>🎃 DarkFlix - Designed for suspense lovers 👻</p>
+  </footer>
+</body>
+</html>
