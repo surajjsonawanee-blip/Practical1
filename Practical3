@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flower Blog</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: url('https://static.vecteezy.com/system/resources/thumbnails/042/820/184/small/flowers-composition-gypsophila-flowers-on-pastel-pink-background-flat-lay-top-view-copy-space-photo.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      position: relative;
+    }
+
+    /* Overlay for readability */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255, 245, 247, 0.8); /* light floral pink overlay */
+      z-index: -1;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Blog Layout */
+    .blog-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card img:hover {
+      transform: scale(1.1);
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card-content h2 {
+      font-family: 'Playfair Display', serif;
+      color: #d6336c;
+      margin-bottom: 10px;
+    }
+
+    .card-content p {
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    /* Buttons */
+    .read-more {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #ff69b4;
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .read-more:hover {
+      background: #d6336c;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #ffb6c1;
+      color: white;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>🌸 Flower Paradise 🌸</h1>
+    <p>Discover the beauty and elegance of flowers around the world</p>
+  </header>
+
+  <!-- Blog Content -->
+  <div class="blog-container">
+    <!-- Card 1 -->
+    <div class="card">
+      <img src="https://images.pexels.com/photos/17285263/pexels-photo-17285263.jpeg?cs=srgb&dl=pexels-yavuz-eren-gungor-188978162-17285263.jpg&fm=jpg" alt="Rose">
+      <div class="card-content">
+        <h2>Roses</h2>
+        <p>Roses symbolize love and beauty. Known as the "Queen of Flowers", they come in countless colors and varieties.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/050/345/179/small_2x/lotus-flower-on-water-covered-by-sunset-light-photo.jpeg" alt="Lotus">
+      <div class="card-content">
+        <h2>Lotus</h2>
+        <p>The Lotus represents purity and enlightenment. It blooms beautifully even in muddy waters, inspiring resilience.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <img src="https://images.theconversation.com/files/447129/original/file-20220217-6550-1my6qii.jpg?ixlib=rb-4.1.0&rect=0%2C113%2C4749%2C3675&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip" alt="Sunflower">
+      <div class="card-content">
+        <h2>Sunflowers</h2>
+        <p>Sunflowers turn towards the sun, symbolizing positivity, energy, and warmth. They bring happiness wherever they bloom.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>🌼 Made with Love | Flower Blog 🌼</p>
+  </footer>
+</body>
+</html>
